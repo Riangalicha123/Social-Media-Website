@@ -16,27 +16,39 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/color.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+	
 	<style>
-		.central-meta {
-        background: linear-gradient(335deg, #ffffff, hsl(179, 94%, 87%), #add8e6);
-        /* Adjust the gradient colors and direction as needed */
-        padding: 15px;  /* Add padding for better visualization */
-    }
-	</style>
+        body {
+            background-image: url('{% static "media/sback.jpg" %}'); /* Replace with the path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        .central-meta {
+            padding: 15px;
+        }
+
+    </style>
 </head>
 <body>
 <!--<div class="se-pre-con"></div>-->
-<div id="wrapper" class="flex flex-col justify-between h-screen">
+
 
 	
 
-	<section>
+	
 		<div class="feature-photo">
 			<figure><img src="{% static 'images/resources/timeline-1.jpg' %}" alt=""></figure>
 			<form action="/follow" method="POST">
 				{% csrf_token %}
 				<div class="add-btn">
-				<span style="color: white; font-size: 27px; margin-right: 520px;"><b><u><a href="/">Home</a></u></b></span>
+					<span style="color: white; font-size: 27px; margin-right: 430px;">
+						<b><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M12 2L0 12h3v8h18v-8h3L12 2zm0 15v-6h-2v6H8l4 4 4-4h-2z"/></svg><a href="/">Home</a></b>
+					</span>
+					
 				
 				{% if user_post_length == 0 %}
 				<span style="color: white; font-size: 27px;"><b>No Post</b></span>
@@ -93,22 +105,24 @@
 						<div class="timeline-info">
 							<ul>
 								<li class="admin-name">
-								  <h5 style="color: black;white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_profile.user.username}}</b><!--<i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>--></h5>
-								  <!--<span>Group Admin</span>-->
+									<div>
+										<h5 style="color: black; white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_profile.user.username}}</b></h5>
+										{{user_profile.bio}}
+									</div>
 								</li>
-							
 							</ul>
 						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
-	</section><!-- top area -->
-	<section>
+	<!-- top area -->
+	{% comment %} <section>
 		<div class="bio">
 				{{user_profile.bio}}
 		</div>
-	</section>
+	</section> {% endcomment %}
 	<section>
 		
 			<div class="container-fluid">
@@ -143,17 +157,20 @@
 
 	<div class="lg:mb-5 py-3 uk-link-reset">
 		<div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
-			<div class="flex space-x-2 text-gray-700 uppercase">
+			{% comment %} <div class="flex space-x-2 text-gray-700 uppercase">
 				<a href="#"> About</a>
 				<a href="#"> Help</a>
 				<a href="#"> Terms</a>
 				<a href="#"> Privacy</a>
+			</div> {% endcomment %}
+			<div style="text-align: center;">
+				<p class="capitalize" style="display: inline-block;">© copyright 2023 by IIIF2 TASKMASTER</p>
 			</div>
-			<p class="capitalize"> © copyright 2023 by IIIF2 TASKMASTER</p>
+			
 		</div>
 	</div>
 
-</div>
+
 
 	
 	
