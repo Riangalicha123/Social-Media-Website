@@ -253,7 +253,7 @@
                         
 
                         <!-- Messages -->
-
+{% comment %} 
                         <a href="#" class="header-links-item">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                                 <g fill="currentColor">
@@ -280,7 +280,7 @@
                                 <!-- Add more message items here -->
                             </ul>
                             <a href="#" class="see-all">See all</a>
-                        </div>
+                        </div> {% endcomment %}
                         
 
                         <!-- profile -->
@@ -328,7 +328,7 @@
                                 <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
                               
                                     <ul class="space-y-1">
-                                       <li> 
+                                       {% comment %} <li> 
                                           <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                            <i class="uil-share-alt mr-1"></i> Share
                                           </a> 
@@ -342,7 +342,7 @@
                                           <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                            <i class="uil-comment-slash mr-1"></i>   Disable comments
                                           </a> 
-                                      </li>  
+                                      </li>   {% endcomment %}
                                       <li> 
                                           <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
                                            <i class="uil-favorite mr-1"></i>  Add favorites 
@@ -836,9 +836,10 @@
             commentElement.innerHTML = `
                 <p><strong>${userName}</strong>: ${commentText}</p>
                 <small>${timestamp}</small>
-                <a href="#" onclick="replyToComment(this)" class="reply-link">Reply</a>
-                <a href="#" onclick="editComment(this)" class="edit-link">Edit</a>
-                <a href="#" onclick="deleteComment(this)" class="delete-link">Delete</a>
+                <a href="#" onclick="replyToComment(this)" class="reply-link" style="color: blue;">Reply</a>
+                <a href="#" onclick="editComment(this)" class="edit-link" style="color: green;">Edit</a>
+                <a href="#" onclick="deleteComment(this)" class="delete-link" style="color: red;">Delete</a>
+
                 <div class="reply-container"></div>
             `;
             return commentElement;
